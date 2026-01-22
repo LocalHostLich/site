@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOOMSDAY PROTOCOL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="start-overlay">
+        <h2 id="overlay-title">SYSTEM READY // WAITING FOR INPUT</h2>
+        <p id="overlay-sub">[ CLICK ANYWHERE TO ENGAGE ]</p>
+    </div>
+
+    <div id="terminal-screen"></div>
+
+    <audio id="bg-music" src="music.MP3" loop></audio>
+    <audio id="tick-loop" src="tick.MP3" loop></audio>
+    <audio id="data-sound" src="data.MP3" loop></audio>
+
+    <h1 id="header">ANNOUNCEMENT</h1>
+
+    <div id="timer">
+        <div class="unit-container">
+            <span id="days" class="digit">00</span><span class="label">DAYS</span>
+        </div>
+        <span>:</span>
+        <div class="unit-container">
+            <span id="hours" class="digit">00</span><span class="label">HRS</span>
+        </div>
+        <span>:</span>
+        <div class="unit-container">
+            <span id="minutes" class="digit">00</span><span class="label">MIN</span>
+        </div>
+        <span>:</span>
+        <div class="unit-container">
+            <span id="seconds" class="digit">00</span><span class="label">SEC</span>
+        </div>
+    </div>
+
+    <div id="cecko-msg">CeckO се завръща в CarniCraft</div>
+
+    <div id="login-screen">
+        <h3>ВЪВЕДИ КОД ЗА ДОСТЪП</h3>
+        <input type="text" id="password-input" placeholder="КОДОВА ДУМА" autocomplete="off">
+        <button id="login-btn">ВХОД</button>
+    </div>
+
+    <div id="secret-trigger" title="CLASSIFIED ACCESS">π</div>
+
+    <div id="sneak-login-screen" class="popup-modal">
+        <h3 style="font-size: 1rem; line-height: 1.4; max-width: 600px;">
+            A CITY BUILT BY A MAN WHO BELIEVED HE COULD OUTSMART HISTORY,
+            WHO THOUGHT HE COULD ENGINEER PARADISE THROUGH AMBITION AND LOGIC,
+            FREED FROM THE BURDENS OF MORALITY.
+        </h3>
+        <input type="text" id="sneak-input" placeholder="ОТГОВОР" autocomplete="off">
+        <div class="btn-group">
+            <button id="sneak-submit-btn">ПРОВЕРИ</button>
+            <button id="sneak-cancel-btn" class="cancel-btn">ЗАТВОРИ</button>
+        </div>
+    </div>
+
+    <div id="sneak-content-screen" class="popup-modal">
+        <h3 style="margin-bottom: 10px;">SECRET PREVIEW</h3>
+        <div class="img-container">
+            <img src="secret_image.jpg" alt="Doomsday Preview" id="secret-img-file">
+        </div>
+        <button id="sneak-back-btn">НАЗАД</button>
+    </div>
+
+    <div id="omega-trigger" title="DEEP FREEZE PROTOCOL">Ω</div>
+
+    <div id="omega-login-screen" class="popup-modal">
+        <h3 style="font-size: 1rem; line-height: 1.4; max-width: 600px;">
+            A LEXICON WRITTEN IN THE BLOOD OF THE MER.<br>
+            A CUBE OF LOGIC LOCKED BY THE ESSENCE OF FIVE.<br>
+            TO KNOW THE UNKNOWABLE, YOU MUST DISCERN THE...
+        </h3>
+        <input type="text" id="omega-input" placeholder="ОТГОВОР" autocomplete="off">
+        <div class="btn-group">
+            <button id="omega-submit-btn">ПРОВЕРИ</button>
+            <button id="omega-cancel-btn" class="cancel-btn">ЗАТВОРИ</button>
+        </div>
+    </div>
+
+    <div id="omega-content-screen" class="popup-modal">
+        <h3 style="margin-bottom: 10px;">PROJECT: Classified</h3>
+        <div class="img-container">
+            <img src="iceberg.jpg" alt="Iceberg Secret" id="omega-img-file">
+        </div>
+        <button id="omega-back-btn">НАЗАД</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

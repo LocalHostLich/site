@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Share+Tech+Mono&display=swap&subset=cyrillic');
+
+:root {
+    --doom-green: #2aff00;
+    --doom-dark: #051a00;
+    --error-red: #ff003c;
+    --glitch-color: #ff00ea;
+    --omega-blue: #00eaff;
+}
+
+body {
+    background-color: #000;
+    color: var(--doom-green);
+    font-family: 'Share Tech Mono', monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    text-transform: uppercase;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    transition: background-image 2s ease-in-out;
+}
+
+body.reveal-background {
+    background-image: url('background.jpg');
+}
+
+/* CRT Overlay */
+body::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 1;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
+
+body::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.9) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* --- HEADER --- */
+h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 0.5rem;
+    margin-bottom: 30px;
+    position: relative;
+    text-shadow: 0 0 10px var(--doom-green);
+    z-index: 2;
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+#cecko-msg {
+    display: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+    margin-top: 30px;
+    color: #fff;
+    text-shadow: 0 0 15px var(--doom-green);
+    z-index: 2;
+    animation: fadeInSlow 2s ease-in;
+}
+
+@keyframes fadeInSlow {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* --- TIMER --- */
+#timer {
+    display: flex;
+    gap: 20px;
+    font-size: 6rem;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 0 15px var(--doom-green);
+    transition: opacity 0.5s;
+}
+
+.unit-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.label {
+    font-size: 1rem;
+    opacity: 0.6;
+    letter-spacing: 0.2rem;
+    margin-top: -10px;
+    color: #fff;
+    text-shadow: none;
+}
+
+.digit {
+    text-shadow: 0 0 15px var(--doom-green);
+}
+
+/* --- START OVERLAY --- */
+#start-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: opacity 0.5s ease;
+}
+
+#start-overlay h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.3rem;
+    color: var(--doom-green);
+    text-shadow: 0 0 10px var(--doom-green);
+    animation: pulse-text 2s infinite;
+    text-align: center;
+}
+
+#start-overlay p {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-top: 1rem;
+    letter-spacing: 0.1rem;
+}
+
+/* --- LOGIN SCREEN --- */
+#login-screen {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    align-items: center;
+    z-index: 50;
+    background: rgba(0, 0, 0, 0.95);
+    padding: 40px;
+    border: 2px solid var(--doom-green);
+    box-shadow: 0 0 30px var(--doom-green);
+}
+
+#login-screen h3 {
+    margin: 0 0 20px 0;
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+    text-align: center;
+}
+
+input {
+    background: #000;
+    border: 1px solid var(--doom-green);
+    color: var(--doom-green);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.5rem;
+    padding: 10px;
+    text-align: center;
+    outline: none;
+    width: 250px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px var(--doom-green) inset;
+}
+
+button {
+    background: var(--doom-green);
+    color: #000;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    border: none;
+    padding: 10px 30px;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+}
+
+button:hover {
+    background: #fff;
+    box-shadow: 0 0 20px #fff;
+}
+
+/* --- TERMINAL SCREEN --- */
+#terminal-screen {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 200;
+    padding: 50px;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow-y: auto;
+}
+
+.terminal-line {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: var(--doom-green);
+    text-shadow: 0 0 5px var(--doom-green);
+    opacity: 0;
+    animation: fadeIn 0.1s forwards;
+}
+
+.access-btn {
+    margin-top: 30px;
+    align-self: center;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.error-shake {
+    animation: shake 0.5s;
+    border-color: var(--error-red);
+    color: var(--error-red);
+    box-shadow: 0 0 10px var(--error-red) inset;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px);
+    }
+
+    20% {
+        transform: translate(-3px, 0px);
+    }
+
+    40% {
+        transform: translate(1px, -1px);
+    }
+
+    60% {
+        transform: translate(-3px, 1px);
+    }
+
+    80% {
+        transform: translate(-1px, -1px);
+    }
+
+    100% {
+        transform: translate(1px, -2px);
+    }
+}
+
+@keyframes pulse-text {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.tick-pulse {
+    text-shadow: 0 0 40px #fff, 0 0 20px var(--doom-green);
+    transition: text-shadow 0.05s;
+}
+
+@media (max-width: 768px) {
+    #timer {
+        font-size: 2.5rem;
+        gap: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #start-overlay h2 {
+        font-size: 1.2rem;
+    }
+
+    input {
+        width: 180px;
+    }
+
+    .terminal-line {
+        font-size: 0.9rem;
+    }
+}
+
+
+
+/* Secret Trigger 1 (PI) - Долу вдясно */
+#secret-trigger {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: var(--doom-dark);
+    background: var(--doom-green);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 300;
+    opacity: 0.3;
+    transition: opacity 0.3s, box-shadow 0.3s;
+    font-family: serif;
+    border-radius: 50%;
+}
+
+#secret-trigger:hover {
+    opacity: 1;
+    box-shadow: 0 0 15px var(--doom-green);
+}
+
+/* Secret Trigger 2 (OMEGA) - Долу вляво */
+#omega-trigger {
+    display: none;
+    /* Скрито докато не се отключи */
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    color: #000;
+    background: var(--omega-blue);
+    width: 35px;
+    height: 35px;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 300;
+    opacity: 0.4;
+    transition: opacity 0.3s, box-shadow 0.3s;
+    font-family: serif;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    box-shadow: 0 0 10px var(--omega-blue);
+}
+
+#omega-trigger:hover {
+    opacity: 1;
+    box-shadow: 0 0 20px var(--omega-blue);
+}
+
+/* Общ стил за новите прозорци (Popup) */
+.popup-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    align-items: center;
+    z-index: 400;
+    background: rgba(0, 0, 0, 0.98);
+    padding: 30px;
+    border: 2px solid var(--doom-green);
+    box-shadow: 0 0 50px var(--doom-green);
+    text-align: center;
+    max-width: 90%;
+}
+
+.popup-modal h3 {
+    color: var(--doom-green);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    letter-spacing: 0.1rem;
+}
+
+.btn-group {
+    display: flex;
+    gap: 15px;
+}
+
+.cancel-btn {
+    background: transparent;
+    border: 1px solid var(--error-red);
+    color: var(--error-red);
+}
+
+.cancel-btn:hover {
+    background: var(--error-red);
+    box-shadow: 0 0 15px var(--error-red);
+}
+
+/* Контейнер за снимката */
+.img-container {
+    border: 1px solid var(--doom-green);
+    padding: 5px;
+    margin-bottom: 20px;
+    background: rgba(0, 20, 0, 0.5);
+}
+
+#secret-img-file,
+#omega-img-file {
+    max-width: 400px;
+    max-height: 60vh;
+    display: block;
+    /* filter: sepia(100%) hue-rotate(50deg) saturate(300%); */
+}
+
+@media (max-width: 768px) {
+
+    #secret-img-file,
+    #omega-img-file {
+        max-width: 100%;
+    }
+}
